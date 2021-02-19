@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App tiempo</title>
+    <!--Bootstrap 4 - estilos-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- Font awesome - iconos -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+
+    <script src="./index.js"></script>
+    <!-- Chartjs - Para Estadisticas -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+</head>
+<body background="./img/tiempo.jpg">
+
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed">
+        <div class="container">
+            <a class="navbar-brand"><i class="fas fa-cloud-sun"></i> ANÁLISIS</a>
+            <a onclick="tablas()" style="margin-left: 300px;" class="navbar-brand"><i class="fas fa-table"></i> Tabla</a>
+            <a onclick="medias()" class="navbar-brand"><i class="fas fa-database"></i> Media / Máximos y mínimos</a>
+            <a onclick="estadisticasMedias()" class="navbar-brand"><i class="far fa-chart-bar"></i> Gráfica media</a>
+            <a onclick="estadisticasMinMax()" class="navbar-brand"><i class="fas fa-chart-line"></i> Gráfica min/max</a>
+
+        </div>
+    </nav>
+
+    <div class="container">
+        <br><br><br><hr>
+        <h2 style="text-align: center;">Informe del tiempo en La Salle La Laguna</h2>
+        <table id="tabla" class="table table-hover">
+            <thead>
+              <tr>
+                <th id="fecha">Fecha</th>
+                <th id="nombre">Nombre</th>
+                <th id="t_ambiente">T.ambiente</th>
+                <th id="t_suelo">T.suelo</th>
+                <th id="calidad_aire">Calidad de aire</th>
+                <th id="presion_aire">Presión del aire</th>
+                <th id="humedad">Humedad</th>
+                <th id="dir_viento">Dir del viento</th>
+                <th id="vel_viento">Vel viento</th>
+                <th id="vel_rafaga">Vel ráfaga viento</th>
+              </tr>
+            </thead>
+            <tbody id="tbody">
+              <!-- Contenido -->
+            </tbody>
+        </table>
+
+        <div id="medias" style="display: none">
+            <h3>MEDIA DE LOS VALORES</h3>
+            <table id="tabla_media" class="table table-hover">
+                <thead>
+                  <tr>
+                    <th id="m_t_ambiente">T.ambiente</th>
+                    <th id="m_t_suelo">T.suelo</th>
+                    <th id="m_calidad_aire">Calidad de aire</th>
+                    <th id="m_presion_aire">Presión del aire</th>
+                    <th id="m_humedad">Humedad</th>
+                    <th id="m_dir_viento">Dir del viento</th>
+                    <th id="m_vel_viento">Vel viento</th>
+                    <th id="m_vel_rafaga">Vel ráfaga viento</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody_media">
+                  <!-- Contenido -->
+                </tbody>
+            </table>
+
+            <h3>VALORES MÁXIMOS</h3>
+            <table id="tabla_maximos" class="table table-hover">
+                <thead>
+                  <tr>
+                    <th id="max_t_ambiente">T.ambiente</th>
+                    <th id="max_t_suelo">T.suelo</th>
+                    <th id="max_calidad_aire">Calidad de aire</th>
+                    <th id="max_presion_aire">Presión del aire</th>
+                    <th id="max_humedad">Humedad</th>
+                    <th id="max_dir_viento">Dir del viento</th>
+                    <th id="max_vel_viento">Vel viento</th>
+                    <th id="max_vel_rafaga">Vel ráfaga viento</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody_maximos">
+                  <!-- Contenido -->
+                </tbody>
+            </table>
+
+            <h3>VALORES MÍNIMOS</h3>
+            <table id="tabla_minimos" class="table table-hover">
+                <thead>
+                  <tr>
+                    <th id="m_t_ambiente">T.ambiente</th>
+                    <th id="m_t_suelo">T.suelo</th>
+                    <th id="m_calidad_aire">Calidad de aire</th>
+                    <th id="m_presion_aire">Presión del aire</th>
+                    <th id="m_humedad">Humedad</th>
+                    <th id="m_dir_viento">Dir del viento</th>
+                    <th id="m_vel_viento">Vel viento</th>
+                    <th id="m_vel_rafaga">Vel ráfaga viento</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody_minimos">
+                  <!-- Contenido -->
+                </tbody>
+            </table>
+        </div>
+        
+
+        <div id="estadisticas" style="display: none">
+            <canvas id="myChart" width="200" height="100">
+                <!-- Analythics -->
+            </canvas>
+        </div>
+
+        <div id="estadisticasMinMax" style="display: none">
+          <canvas id="myChart_secondary" width="200" height="100">
+              <!-- Analythics -->
+          </canvas>
+      </div>
+        
+    </div>
+   
+    
+</body>
+
+</html>
